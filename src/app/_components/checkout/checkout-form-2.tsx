@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { ProductInfoType } from "@/interfaces/productInfo";
 import { CustomerInfoType } from "@/interfaces/customerInfo";
 import DiscountBar from "./checkout-discount-bar";
-import QuantitySelector from "./checkout-quantity-selector";
+import QuantitySelector from "./checkout-quantity-selector2";
 import CustomerInfo from "./checkout-customer-info";
 import PaymentOptions from "./checkout-payment-options";
 import MobilePaymentOptions from "./checkout-mobile-payment-options";
@@ -21,6 +21,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 import { createJimmyKey } from "@/app/_utils/jimmyKeyUtils";
 import { emergencyStartSession } from "@/app/_utils/emergencySessionStart";
 import { useTracking } from "@/app/_context/TrackingContext";
+import CheckoutHeader from "./checkout-header-timer";
 
 type Props = {
   info: CheckoutPageType;
@@ -429,6 +430,7 @@ const CheckoutForm = ({ info }: Props) => {
 
   return (
     <>
+    
       <HandleSessionStart
         info={info}
         setCustomerInfo={setCustomerInfo}
@@ -436,8 +438,9 @@ const CheckoutForm = ({ info }: Props) => {
       />
       <div className="flex  w-full relative flex-col items-center bg-[#f1f4f8]">
         <div id="payment-container" />
-        <div className="flex w-full max-w-[1100px] sm:px-4 pb-12 flex-wrap">
-          <div className="flex flex-col w-full  lg:w-1/2 px-2 lg:py-8 pt-4 sm:pt-8 pb-4">
+        <div className="flex w-full max-w-[1100px] sm:px-4 pb-12 flex-col">
+          <div className="flex flex-col w-full  lg:w-1/2 px-2 lg:py-8 pt-4 sm:pt-8 pb-4 bg-white">
+        <CheckoutHeader info={info}/>
             <div className="bg-white p-4 rounded-lg border-[1px] border-[#ddd] flex">
               <DiscountBar
                 product={product.product}
@@ -461,8 +464,8 @@ const CheckoutForm = ({ info }: Props) => {
             <div className="bg-white p-4 rounded-lg border-[1px] border-[#ddd] mt-4">
               <CustomerInfo formik={formik} />
             </div>
-          </div>
-          <div className="flex flex-col  w-full  lg:w-1/2 px-2 lg:py-8">
+          
+          <div className="flex flex-col  w-full  px-2 lg:py-8">
             <div className="bg-white p-4 rounded-lg border-[1px] border-[#ddd] ">
               <PaymentOptions
                 info={info}
@@ -475,6 +478,7 @@ const CheckoutForm = ({ info }: Props) => {
               />
             </div>
           </div>
+        </div>
         </div>
         <CheckoutCouponPop
           info={info}

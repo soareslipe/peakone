@@ -61,14 +61,7 @@ const CheckoutHeader = ({ info }: Props) => {
     <>
       <div className="w-full">
         <div className="flex w-full relative">
-          <Image
-            src={info.header.background}
-            alt="background"
-            fill
-            className="absolute top-0 z-0 object-cover brightness-50"
-            priority
-          />
-          <div className="flex w-full justify-center z-10 py-4">
+          <div className="flex w-full justify-center z-10 py-4 shadow-[0_3px_4px_0_rgba(0,0,0,0.1)]">
             <div className="flex w-full max-w-[1100px] px-4 flex-col lg:flex-row">
               {/* <div className="hidden lg:flex w-1/2 justify-start items-center">
                 <Image
@@ -79,13 +72,13 @@ const CheckoutHeader = ({ info }: Props) => {
                   priority
                 />
               </div> */}
-              <div className="flex w-full  justify-between items-center space-x-2 lg:space-x-0 ">
+              <div className="flex w-full max-md:justify-center justify-between ">
                 <Image
                   src={info.header.logo}
                   alt={siteProduct}
                   width={200}
                   height={120}
-                  className="w-1/2 sm:w-auto lg:mr-[60px] max-w-1/2 object-scale-down"
+                  className="h-14 object-scale-down"
                   priority
                 />
                 <Image
@@ -93,7 +86,7 @@ const CheckoutHeader = ({ info }: Props) => {
                   alt={siteProduct}
                   width={130}
                   height={130}
-                  className="w-1/2 sm:w-auto max-w-[130px] object-scale-down"
+                  className="h-14 object-scale-down max-md:hidden "
                   priority
                 />
               </div>
@@ -108,22 +101,6 @@ const CheckoutHeader = ({ info }: Props) => {
               </div> */}
             </div>
           </div>
-        </div>
-      </div>
-      <div className="sticky top-0 z-50 w-full bg-gradient-to-r from-[#53a1ea] to-[#365bf2]">
-        <div className="flex w-full max-w-[1100px] mx-auto justify-between items-center px-4 text-[18px] sm:text-[20px] text-white">
-          <p className="w-full p-2 text-center">
-            {message || (
-              <>
-                Attention: This Special Offer Expires In{" "}
-                <span className="font-bold whitespace-nowrap inline-block w-[70px] text-center">
-                  {formatTime(mins)} : {formatTime(secs)}
-                </span>
-                {" - "}
-                Claim Your Discount Now!
-              </>
-            )}
-          </p>
         </div>
       </div>
     </>

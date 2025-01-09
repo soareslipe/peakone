@@ -10,7 +10,7 @@ type Props = {
   info: CheckoutPageType;
 };
 
-const CheckoutPage = ({ info }: Props) => {
+const CheckoutPage2 = ({ info }: Props) => {
   if (!info) {
     return (
       <div>
@@ -30,4 +30,4 @@ const CheckoutPage = ({ info }: Props) => {
   );
 };
 
-export default CheckoutPage;
+export default CheckoutPage2;

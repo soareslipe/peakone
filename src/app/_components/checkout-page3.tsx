@@ -1,6 +1,6 @@
 import React from "react";
 import CheckoutHeader from "./checkout/checkout-header-timer2";
-import CheckoutForm from "./checkout/checkout-form";
+import CheckoutForm from "./checkout/checkout-form-2";
 import Footer from "./checkout/checkout-footer-dark";
 import { CheckoutPageType } from "@/interfaces/checkoutPage";
 import FunnelFluxScripts from "@/lib/funnel-flux-scripts";
@@ -10,7 +10,7 @@ type Props = {
   info: CheckoutPageType;
 };
 
-const CheckoutPage = ({ info }: Props) => {
+const CheckoutPage3 = ({ info }: Props) => {
   if (!info) {
     return (
       <div>
@@ -20,7 +20,7 @@ const CheckoutPage = ({ info }: Props) => {
   }
 
   return (
-    <div className="flex flex-col items-center relative">
+    <div className="w-full flex flex-col items-center relative">
       <CheckoutHeader info={info} />
       <CheckoutForm info={info} />
       <Footer info={info} />
@@ -30,4 +30,4 @@ const CheckoutPage = ({ info }: Props) => {
   );
 };
 
-export default CheckoutPage;
+export default CheckoutPage3;

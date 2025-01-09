@@ -5,6 +5,8 @@ import Footer from "./checkout/checkout-footer";
 import { CheckoutPageType } from "@/interfaces/checkoutPage";
 import FunnelFluxScripts from "@/lib/funnel-flux-scripts";
 import CheckoutClickId from "./checkout/checkout-click-id";
+import CheckoutPage2 from "./checkout-page2";
+import CheckoutPage3 from "./checkout-page3";
 
 type Props = {
   info: CheckoutPageType;
@@ -23,15 +25,12 @@ const CheckoutPage = ({ info }: Props) => {
     <>
       {info.template === "1" && (
         <div className="flex flex-col items-center relative">
-          <CheckoutHeader info={info} />
-          <CheckoutForm info={info} />
-          <Footer info={info} />
-          <FunnelFluxScripts funnelFlux={info.funnelFlux} />
-          <CheckoutClickId />
+          <CheckoutPage2 info={info} />
         </div>
       )}
       {info.template === "2" && (
         <div className="flex flex-col items-center relative">
+          <CheckoutPage3 info={info} />
           {/* Build this Page following the same patterns as Template1 */}
         </div>
       )}
